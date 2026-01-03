@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Nurul 💖</title>
+
+  <!-- Font Lucu -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: url("background.jpg") center/cover no-repeat;
+      font-family: 'Pacifico', cursive;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .paper {
+      position: relative;
+      max-width: 760px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #c9a36a;
+      background-image: radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0);
+      background-size: 6px 6px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      color: #4b2e1f;
+      font-size: 20px;
+      line-height: 1.8;
+      animation: fadeIn 2s ease;
+    }
+
+    .signature {
+      display: block;
+      text-align: right;
+      margin-top: 25px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Bunga & Love */
+    .float {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Tombol Musik */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: 2px solid white;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      font-family: 'Pacifico', cursive;
+      font-size: 16px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Musik -->
+  <audio id="music" src="lover.mp3" autoplay loop></audio>
+
+  <div class="overlay"></div>
+
+  <!-- Kertas Ucapan -->
+  <div class="paper">
+    <p>
+      Halooo Nurul sayang cintaku duniakuuu...<br><br>
+
+      Selamat ulang tahun yaa cantik, aku sayaang banget sama kamu,
+      aku harap apa yang kamu ingin capai segera kamu dapatkan.
+      Terimakasih banyak ya sayang udah nemenin aku kurang lebih setengah tahun ini,
+      aku harap kamu bakal terus sama aku kedepannya dan aku jadi orang yg nemenin kamu
+      disaat kamu susah, senang, dan dikondisi apapun.<br><br>
+
+      Semoga kita saling tumbuh dan berkembang menjadi lebih baik ya sayangku.
+      Aku janji aku bakal usahakan yang terbaik buat kamu sayang.
+      Semangaat terus kuliahnya ya meski cape dan banyak tugas,
+      jadiin aku tempat kamu cerita yang nyamam ya sayang.
+      Jangan takut-takut terus buat masa depan kamu ya sayang,
+      bagi cerita dan masa depan kamu sama aku biar kita bangun masa depan
+      yang lebih cerah dan sukses ya sayang.<br><br>
+
+      Makasii buat semuanya ya sayaang,
+      wish u all the best &lt;3
+
+      <span class="signature">
+        Salam hangat,<br>
+        Gilfan
+      </span>
+    </p>
+  </div>
+
+  <!-- Tombol Musik -->
+  <button class="music-btn" onclick="toggleMusic()">🎵 Lover</button>
+
+  <script>
+    const music = document.getElementById("music");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    // Efek bunga & love
+    setInterval(() => {
+      const item = document.createElement("div");
+      item.className = "float";
+      item.innerHTML = ["🌸","🌼","🌺","🌷","💐","❤️","💖","💗"][Math.floor(Math.random()*8)];
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.animationDuration = (3 + Math.random() * 4) + "s";
+      document.body.appendChild(item);
+
+      setTimeout(() => {
+        item.remove();
+      }, 7000);
+    }, 300);
+  </script>
+
+</body>
+</html>
